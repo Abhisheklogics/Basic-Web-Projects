@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>
+file downloader
+</title>
+<style>
+h1
+{
+  color:blue;
+ margin-top:-10px;
+margin-left:40px;
+ 
+}
+.frame
+{
+  width:fit-content;
+  height:fit-content;
+ border:1px solid black;
+ background-color:white;
+ margin-top:250px;
+ margin-left:490px;
+padding:10px;
+border-radius:5px;
+ box-shadow:1px 1px 5px black;
+}
+.fileinput
+{
+ height:40px;
+ width:95%;
+margin:5px;
+padding:2px;
+}
+#btn
+{
+ height:40px;
+ width:95%;
+padding:10px;
+margin:5px;
+background-color:#fcfced;
+ cursor:pointer;
+ font-size:20px;
+}
+ 
+</style>
+</head>
+<body style="background-color:#6da5ed;">
+<div class="frame">
+<h1>
+Image Downloader
+</h1> 
+ <input type="url" placeholder="enter file url" class="fileinput">
+ <button value=" download file" id="btn"> Download file</button>
+</div>
+<script>
+let file=document.querySelector(".fileinput");
+let downbtn=document.querySelector("#btn");
+downbtn.addEventListener("click",()=>{
+ downbtn.innerText=="File Downloading"
+      fetchFile(file.value);
+   console.log(file.value)
+});
+function fetchFile(url) 
+{
+  fetch(url)
+ .then((res)=> res.blob() )
+ .then((file)=>{
+ console.log(file);
+  let temp =URL.createObjectURL(file);
+   let atag =document.createElement("a");
+    atag.href=temp;
+     atag.download=url.replace(/ ^.*[\\\ /] /,'');
+  document.body.appendChild(atag);
+      atag.click();
+     
+     URL.revokeObjectURL(temp);
+     atag.remove();
+   downbtn.innerText="Download file"
+         }).
+ catch((err)=>{
+    downbtn.innerText="Download file"
+    alert(" sorry failed")      
+})
+
+} 
+</script>
+</body>
+</html>

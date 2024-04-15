@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>note web</title>
+<link rel="stylesheet" href="note1.css">
+</head>
+<body class="frame"> 
+ 
+<div class="box1">
+<h1 class="hed">NOTES</h1>
+
+  <button class="btn" onclick="demo()"> CREATE NOTES </button>
+
+<div class="box2">
+<p contenteditable="true" class="input-box">
+<img src="ABHI2.JPG"  class="img">
+</p>
+
+
+</div>
+</div>
+ 
+<script>
+ let c2=document.querySelector(".img")
+ let y=document.querySelectorAll(".input-box");
+ const a= document.querySelector(".btn");
+  const elem=document.querySelector(".box2");
+const box=document.querySelector(".box1");
+ 
+ 
+    
+
+ function demo(){
+    
+  let d= document.createElement("p");
+    let  c1=document.createElement("img");
+   c1.src="ABHI2.jpg";
+c1.className="img";
+   
+   d.setAttribute("contenteditable","true");
+   d.className="input-box"; 
+ let elem1=elem.appendChild(d).appendChild(c1);
+
+  
+ 
+ elem1.addEventListener("click",(e)=>{
+    if(e.target.className==="img")
+{
+   let removeIt=e.target.parentNode;
+ removeIt.remove();
+  console.log(elem1)
+}
+ })
+ 
+  }
+
+
+
+
+</script> 
+</body>
+</html>                                                                                                                                                                       

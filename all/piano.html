@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>piano</title>
+<link rel="stylesheet" href="piano.css">
+</head>
+<body>
+<h1 class="head"> Virtual Piano</h1>
+<div class="box">
+<h1 class="head1">Playable piano</h1>
+ <ul class="ul">
+<li class="white " data-key="a"><span id="data">a</span></li>
+<li class=" white"  data-key="d"><span id="data">d</span></li>
+<li class="white black"  data-key="e" class=""><span id="data">e</span></li>
+<li class="white" data-key="f"><span id="data">f</span></li>
+<li class="white"  data-key="g"><span id="data">g</span></li>
+<li class="white black" data-key="h" class="black"><span id="data">h</span></li>
+<li class="white "  data-key="j"><span id="data">j</span></li>
+<li class="white" data-key="k"><span id="data">k</span></li>
+<li class="white black "  data-key="l" class="black"><span id="data">l</span></li>
+<li class="white " data-key="o"><span id="data">o</span></li>
+<li class="white black"  data-key="p"><span id="data">p</span></li>
+<li class="white" data-key="s" class="black"><span id="data">s</span></li>
+<li class="white "  data-key="t"><span id="data">t</span></li>
+<li class="white black" data-key="u"><span id="data">u</span></li>
+<li class="white "  data-key="w" class="black"><span id="data">w</span></li>
+<li class="white black" data-key="y"><span id="data">y</span></li>
+<li class="white" data-key="q"><span id="data"> q</span></li>
+</ul>
+<span id="vol"> volume</span><input type="range" min="0" max="5" value="5" id="range">
+</div>
+<script>
+all =document.querySelectorAll(".white");
+let vol =document.querySelector("#range");
+let arr=[];
+let audio = new Audio(`tunes/a.wav`);
+ function piano(key)
+{
+ audio.src=`tunes/${key}.wav`
+audio.play();
+}
+all.forEach(function (key){
+ arr.push(key.dataset.key);
+ console.log(key.dataset.key)
+  key.addEventListener("click",()=>{
+  piano(key.dataset.key);
+})
+
+})
+document.addEventListener("keydown",(e)=>{
+
+if(arr.includes(e.key)){
+ piano(e.key)
+}
+
+})
+ 
+vol.addEventListener("change",(e)=>{
+  audio.volume=e.target.value; 	
+ })
+</script>
+</body>
+</html>

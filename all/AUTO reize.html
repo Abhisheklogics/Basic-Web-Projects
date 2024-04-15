@@ -1,0 +1,76 @@
+<html>
+<head>
+<title> auto reize</title>
+<style>
+*
+{
+ margin:0px;
+ padding:0px;
+ box-sizing:border-box;
+}
+body
+{ height:100%;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+background-image:linear-gradient(blue,white); 
+}
+.frame
+{
+  height:100px;
+  width:320px;
+  background-color:white;
+ padding:5px;
+ box-sizing:border-box;
+corsor:pointer;
+}
+textarea
+{
+ 
+  min-width:320px;
+padding:2px;
+ transform:translateX(-5px);
+ background:none;
+font-size:20px;
+ border:1px solid white;
+ 
+}
+h2 
+{
+  color:royalblue;
+}
+</style>
+</head>
+<body>
+<div class="frame">
+<h2> AUTO RESIZE TEXTAREA</h2>
+<textarea> </textarea>
+</div>
+<script>
+let text =document.querySelector("textarea");
+ let  box=document.querySelector(".frame");
+
+ text.addEventListener("keyup",(e)=>{
+  text.style.height="auto";
+  let height=e.target.scrollHeight;
+ 
+  text.style.height=height+"px";
+  box.style.height=height+"px";
+
+ 
+})
+</script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

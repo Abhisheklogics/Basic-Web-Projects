@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>
+image editor
+</title>
+<link rel="stylesheet" href="image2.css">
+</head>
+<body>
+<h1 style="position:relative;top:-300px;left:400px; color:white;"> Basic Image Editor</h1>
+<div class="main">
+<div class="main1">
+<label>
+ Blur<input type="range" class="range" id="blur" min="0" max="5" value="0">
+</label>
+</div >
+<div class="main1">
+<label>
+ hue-rotate<input type="range" class="range" id="hue-rotate" min="0" max="360" value="0">
+</label>
+</div>
+<div class="main1">
+<label>
+  contrast<input type="range" class="range" id="contrast" min="0" max="200" value="100">
+</label>
+</div>
+  
+
+<div class="main2"> 
+<label>
+no-flip <input type="checkbox" id="noflip" class="flip" >
+</label>
+</div>
+<div class="main2" > 
+<label>
+flip-vertical <input type="checkbox" id="flipx" class="flip"  >
+</label>
+</div>
+<div class="main2"> 
+<label>	
+flip-horizontel <input type="checkbox" id="filpy" class="flip">
+</label>
+</div>
+<div class="image-box">
+<img id="image">
+<label class="file">
+chose image
+<input type="file" style=" display:none" id="filebtn">
+ 
+</label>
+</div>
+	
+
+	
+
+<script>
+let blur =document.querySelector("#blur");
+let contrast =document.querySelector("#contrast");
+let hue_rotate =document.querySelector("#hue-rotate");
+let image =document.querySelector("#image");
+let filters =document.querySelectorAll(".range");
+let filebtn2 =document.querySelector("#filebtn");
+let noflip =document.querySelector("#noflip");
+let flipx =document.querySelector("#flipx");
+let flipy =document.querySelector("#filpy");
+let flip =document.querySelectorAll(".flip");
+
+ 
+let image1 =document.querySelector(".image-box");
+filebtn2.onchange=()=>{
+
+ image.style.height="200px";
+ image.style.width="250px";
+ 
+let red = new FileReader();
+red.readAsDataURL(filebtn2.files[0]);
+red.onload=()=>{
+ image.setAttribute("src",red.result)
+}
+}
+filters.forEach(function(btn){
+ btn.addEventListener("input",filter1)     
+ })
+ function filter1()
+{
+image.style.filter=`blur(${blur.value}px) hue-rotate(${hue_rotate.value}deg)  contrast(${contrast.value}%) `
+ 
+}
+
+flip.forEach( function(btn2){
+ btn2.addEventListener("click",flipw)
+})
+ function flipw	()
+{
+ if(flipx.checked)
+  {
+    image.style.transform="scaleY(-1)"
+  }
+if(flipy.checked)
+  {
+    image.style.transform="scaleX(-1)"
+  }
+if(noflip.checked)
+{
+ image.style.transform="scale(1,1)"
+}
+}
+</script>	
+</body>
+</html>

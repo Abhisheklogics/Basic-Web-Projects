@@ -1,0 +1,68 @@
+*{
+   margin:0px;
+  padding:0px;
+  box-sizing:border-box;
+
+  }
+.main-box
+{
+  
+  background-color:#454443;
+overflow:auto;
+}
+.heading
+{
+   color:#f7f7f2;
+ font-size:25px;
+}
+#output
+{
+  background-color:white;
+  position:absolute;
+   top:30px;
+   left:620px;
+  width:670px;
+  height:95%;
+color:black;
+ font-size:20px;
+padding:5px;
+overflow:auto;
+border-radius:5px;
+}
+#htmlCode
+{
+   height:200px;
+  width:600px;
+ font-size:20px;
+padding:10px;
+border-radius:5px;
+}
+#cssCode
+{
+   height:200px;
+  width:600px;
+font-size:20px;
+padding:10px;
+border-radius:5px;
+}
+#jsCode
+{
+   height:200px;
+  width:600px;
+font-size:20px;
+padding:10px;
+border-radius:5px;
+}
+#iot
+{
+  color:white;
+  position:relative;
+  left:600px;
+  font-size:25px;
+}
+#box
+{
+   height:50px;
+  width:100%;
+  background-color:blue;
+}

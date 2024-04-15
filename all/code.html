@@ -1,0 +1,40 @@
+<html>
+<head>
+<title> my code editor</title>
+<link rel="stylesheet" href="code1.css">
+</head>
+<body>
+  
+<div class="main-box">
+
+
+<div class="left">
+<div> <span class="heading"> html</span></div>
+  <textarea id="htmlCode" onKeyup="run()"></textarea>
+<div><span class="heading"> css</span></div>
+  <textarea id="cssCode" onKeyup="run()"></textarea>
+
+<div> <span class="heading"> Javascript</span></div>
+  <textarea id="jsCode" onKeyup="run()"></textarea>
+</div>
+<div>
+<iframe  id="output"></iframe>
+</div>
+
+</div>
+<script>
+
+function run()
+{ 
+  let HtmlCode = document.getElementById("htmlCode").value;
+  let cssCode=document.getElementById("cssCode").value;
+   let jsCode=document.getElementById("jsCode").value;
+  let output = document.getElementById("output");
+ 
+ output.contentDocument.body.innerHTML = HtmlCode+"<style>"+cssCode+"</style>";
+  
+  output.contentWindow.eval(jsCode);
+}
+</script>
+</body>
+</html>

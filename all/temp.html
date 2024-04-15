@@ -1,0 +1,108 @@
+<html>
+<head>
+<title> temp</title>
+<style>
+*
+{
+  margin:0px;
+  padding:0px;
+ border-box:box-sizing;
+}
+
+.temp
+{
+    background-color:royalblue;
+  height:200px;
+  width:300px;
+ position:relative;
+ left:500px;
+top:200px;
+box-shadow:3px 3px 5px black;
+border-radius:5px;
+}
+#hed
+{
+   position:relative;
+  top:20px;
+left:500px;
+color:blue;
+}
+#hed1
+{
+  position:relative;
+  top:20px;
+left:25px;
+ font-size:20px;
+color:white;
+
+ 
+}
+ #hed2
+{
+  position:relative;
+  top:20px;
+ left:130px;	
+ font-size:20px;
+ color:white;
+
+ 
+}
+#text{
+   position:relative;
+   top:80px;
+  left:-120px;
+   height:40px;
+  width:85px;
+ padding:5px;
+ font-size:25px;
+border-radius:3px;
+	
+	
+}
+#text1{
+   position:relative;
+   top:40px;
+  left:200px;
+   height:40px;
+  width:85px;
+padding:5px;
+ font-size:25px;
+ border-radius:3px;	
+}
+</style>
+</head>
+<body style="background-color:#a4c5de;">
+<h1 id="hed">TEMPRETURE CONVERTOR  </h1>
+<div class="temp">
+<span id="hed1"> celsius</span>
+<span id="hed2"> fahrenheit</span>
+<input type="text" id="text">
+<input type="text" id="text1">
+</div>
+</body>
+<script>
+let x=document.querySelector("#text");
+let y=document.querySelector("#text1");
+window.addEventListener("laod",()=> x.focus());
+x.addEventListener("input",()=>{
+ y.value=(((x.value*9)/5)+32).toFixed(2);
+if(!x.value)
+{
+  return x.value=y.value="";
+}  
+ })
+
+y.addEventListener("input",()=>{
+ x.value=(((y.value-32)*5)/9).toFixed(2);
+if(!y.value)
+{
+  return y.value=x.value="";
+}  
+ })
+
+  
+</script>
+
+
+
+</html>

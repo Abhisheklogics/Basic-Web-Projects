@@ -1,0 +1,115 @@
+<html>
+<head>
+<title> typing speed </title>	
+<link rel="stylesheet" href="type.css">
+</head>
+<body>
+<h1>TypingTest</h1>
+<script src="para.js"></script>	
+<div class="center">
+<p class="type">
+rghtrhtr
+</p>
+<button> Try Again</button>
+<h2 id="hed" >mistakes</h2>
+<h2 id="hed2">TimeLeft</h2>
+</div>
+<input type="text">
+<script>
+let a= document.querySelector(".type");
+let button= document.querySelector("button");
+ let a1= document.querySelector(".center");
+let b = document.querySelector("input"); 
+let hed=document.querySelector("#hed2")
+let hed1=document.querySelector("#hed")
+
+ function demo()
+{
+ a.innerHTML=""
+let  randam  = Math.floor(Math.random()*arr.length);	
+ arr[randam].split('').forEach(function(btn){
+  a.innerHTML+=`<span>${btn}</span>` 
+
+ window.addEventListener("keyup",b.focus())
+window.addEventListener("click",b.focus())
+
+})
+}
+ var charindex=0;
+ var mis =0
+
+
+function typing()
+{
+ let  char = a.querySelectorAll("span")
+  let inp =  b.value.split("")[charindex]	
+if(inp==null)
+{  
+   mis--;
+   charindex--;
+  char[charindex].classList.remove("incorrect","correct")
+
+
+hed1.innerHTML=`mistakes ${mis}`
+if(mis<0)
+{
+ hed1.innerHTML=`mistakes ${0}`
+}
+console.log(mis)
+}
+else
+{
+  if(char[charindex].innerText===inp)
+{
+char[charindex].classList.add("correct")
+}
+ else
+{ 
+
+char[charindex].classList.add("incorrect")
+ mis++
+hed1.innerHTML=`mistakes ${mis}`
+console.log(mis)
+} 
+charindex++;
+}
+
+}
+b.addEventListener("input",()=>
+{
+typing()  
+})
+window.addEventListener("load",()=>{
+demo()
+})
+button.addEventListener("click",()=>{
+demo()
+reset()
+timer()
+}) 
+
+ function reset()
+{
+  charindex=0;
+ mis=0
+ hed1.innerHTML=`mistakes ${mis}`
+ 
+}
+ 
+ let timeLeft=60; 
+ let maxTime=0;
+function timer()
+{
+ if(timeLeft>0)
+{
+ timeLeft--;
+ if(timeLeft==0)
+ {
+  console.log(timeLeft)
+ }
+}
+}
+
+ </script>
+</body>
+</html>
